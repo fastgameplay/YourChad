@@ -12,6 +12,11 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var binding : ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (FirebaseAuth.getInstance().currentUser != null){
+            val intent = Intent(this,YourchatMain::class.java)
+            startActivity(intent)
+            finish()
+        }
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
