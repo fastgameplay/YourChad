@@ -96,19 +96,21 @@
     <Button
         android:id="@+id/btn_to_register"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
         android:text="@string/to_register"
         app:layout_constraintEnd_toEndOf="@+id/btn_login"
+        app:layout_constraintStart_toEndOf="@+id/btn_recovery"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <Button
         android:id="@+id/btn_recovery"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/recovery"
+        android:layout_marginStart="4dp"
+        android:text="@string/to_recovery"
         app:layout_constraintStart_toStartOf="@+id/btn_login"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 

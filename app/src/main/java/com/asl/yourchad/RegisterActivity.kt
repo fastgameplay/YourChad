@@ -42,13 +42,19 @@ class RegisterActivity : AppCompatActivity() {
 
             binding.inputPasswordHolder.error = passErrorText
         }
+        binding.inputCPasswordField.doOnTextChanged{text,_,_,_ ->
+            if(text.toString() != binding.inputPasswordField.text.toString()){
+                binding.inputCPasswordHolder.error = "Password did not match"
+            } else binding.inputCPasswordHolder.error = null
+        }
         //endregion
 
         //region On Click Listeners
         binding.btnRegister.setOnClickListener(){
-            if(Validate.email(binding.inputMailField.text.toString()) && Validate.password(binding.inputPasswordField.text.toString()) && Validate.username(binding.inputUsernameField.text.toString())){
-                if(binding.inputPasswordField.text.toString() != binding.inputCPasswordField.text.toString() ) binding.inputCPasswordHolder.error = "Password not match"
-                if(binding.inputUsernameField.text.toString().isEmpty()) binding.inputUsernameHolder.error = "Please enter your username"
+            if(!Validate.email(binding.inputMailField.text.toString())
+                || !Validate.password(binding.inputPasswordField.text.toString())
+                || !Validate.username(binding.inputUsernameField.text.toString())
+                || binding.inputPasswordField.text.toString() != binding.inputCPasswordField.text.toString() ){
                 return@setOnClickListener
             }
 
@@ -60,6 +66,7 @@ class RegisterActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
+                        binding.inputMailHolder.error = "This Email address already registered"
                         Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show()
                     }
                 }
