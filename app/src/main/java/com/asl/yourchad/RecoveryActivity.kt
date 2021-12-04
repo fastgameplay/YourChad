@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.asl.yourchad.databinding.ActivityRecoveryBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class RecoveryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecoveryBinding
@@ -33,9 +34,24 @@ class RecoveryActivity : AppCompatActivity() {
         }
 
         binding.btnSendRecovery.setOnClickListener(){
-            if (Validate.email(binding.inputRecoveryField.text.toString())){
-                Toast.makeText(this, "Recovery instructions sent to your Email \n Please check inbox", Toast.LENGTH_LONG).show()
-            }else binding.inputRecoveryHolder.error = "Invalid Email"
+            if (!Validate.email(binding.inputRecoveryField.text.toString())){
+                binding.inputRecoveryHolder.error="Invalid Email"
+                return@setOnClickListener
+            }
+
+            FirebaseAuth.getInstance()
+                .sendPasswordResetEmail(binding.inputRecoveryField.text.toString())
+                .addOnCompleteListener{task ->
+                    if(task.isSuccessful){
+                        Toast.makeText(this, "Recovery instructions sent successfully \n Please check your Email inbox", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        binding.inputRecoveryHolder.error="Invalid Email"
+                    }
+
+                }
+
         }    //endregion
 
     }
