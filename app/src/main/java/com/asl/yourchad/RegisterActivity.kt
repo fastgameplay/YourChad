@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.asl.yourchad.databinding.ActivityRegisterBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding : ActivityRegisterBinding
@@ -48,7 +49,20 @@ class RegisterActivity : AppCompatActivity() {
             if(Validate.email(binding.inputMailField.text.toString()) && Validate.password(binding.inputPasswordField.text.toString()) && Validate.username(binding.inputUsernameField.text.toString())){
                 if(binding.inputPasswordField.text.toString() != binding.inputCPasswordField.text.toString() ) binding.inputCPasswordHolder.error = "Password not match"
                 if(binding.inputUsernameField.text.toString().isEmpty()) binding.inputUsernameHolder.error = "Please enter your username"
+                return@setOnClickListener
             }
+
+            FirebaseAuth.getInstance()
+                .createUserWithEmailAndPassword(binding.inputMailField.text.toString(),binding.inputPasswordField.text.toString())
+                .addOnCompleteListener{task ->
+                    if(task.isSuccessful){
+                        val intent = Intent(this,LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
         binding.btnToLogin.setOnClickListener(){
             val intent = Intent(this, LoginActivity::class.java)
