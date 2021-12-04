@@ -2,7 +2,7 @@
     <string name="app_name">YourChad</string>
     <string name="copyright">©ASL 2021</string>
     <string name="your_chat">Your Chat</string>
-<!--                Event Buttons               -->
+    <!--                Event Buttons               -->
     <string name="sing_in">Sing in</string>
     <string name="sing_up">Register</string>
     <string name="recovery">Recovery</string>

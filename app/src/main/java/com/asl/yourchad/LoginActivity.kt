@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.asl.yourchad.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -15,16 +16,32 @@ class LoginActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        listeners()
+        onClickListeners()
 
 
         
     }
-    private fun listeners(){
+    private fun onClickListeners(){
 
         //region On Click Listeners
         binding.btnLogin.setOnClickListener(){
-            Toast.makeText(this, "s", Toast.LENGTH_SHORT).show()
+            if(!Validate.email(binding.inputLoginField.text.toString())){
+                binding.inputLoginHolder.error = "Invalid Email address"
+                return@setOnClickListener
+            }
+            //Sign In
+            FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(binding.inputLoginField.text.toString(),binding.inputPasswordField.text.toString())
+                .addOnCompleteListener{task ->
+                    if(task.isSuccessful){
+                        val intent = Intent(this,YourchatMain::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        Toast.makeText(this, "Incorrect Email or Password", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
         }
         binding.btnToRegister.setOnClickListener(){
             val intent = Intent(this, RegisterActivity::class.java)
