@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">YourChad</string>
     <string name="copyright">©ASL 2021</string>
-    <string name="your_chat">Your Chat</string>
+    <string name="your_chad">Your Chad</string>
+    <string name="wh_chad">Welcome Home,\nChad</string>
     <!--                Event Buttons               -->
     <string name="sing_in">Sing in</string>
     <string name="sing_up">Register</string>

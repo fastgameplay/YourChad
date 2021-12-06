@@ -7,43 +7,32 @@
     android:layout_weight="1"
     tools:context=".RecoveryActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline6"
+        app:layout_constraintDimensionRatio="V,1:1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_your_chad" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="32dp"
-            android:layout_weight="3"
-            app:layout_constraintBottom_toTopOf="@+id/guideline6"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_remove_red_eye_24"
-            tools:layout_editor_absoluteX="403dp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/sing_up"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintDimensionRatio="H,7:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_optimizationLevel="ratio"
-            tools:layout_editor_absoluteY="138dp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/sing_up"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@id/guideline6"
+        app:layout_constraintDimensionRatio="H,3:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_optimizationLevel="ratio" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -68,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="@+id/guideline6">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_mail_field"

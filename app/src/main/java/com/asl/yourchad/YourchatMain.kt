@@ -17,6 +17,8 @@ class YourchatMain : AppCompatActivity() {
     }
 
     fun onClickListeners(){
+
+        //log out
         binding.btnLogout.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
