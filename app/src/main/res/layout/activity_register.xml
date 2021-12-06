@@ -16,7 +16,7 @@
         app:layout_constraintDimensionRatio="V,1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_your_chad" />
+        app:srcCompat="?attr/chad_png" />
 
     <TextView
         android:id="@+id/textView"

@@ -36,6 +36,8 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
 
+        <item name="chad_png">@drawable/ic_your_chad_l_version</item>
+
 
     </style>
 </resources>
