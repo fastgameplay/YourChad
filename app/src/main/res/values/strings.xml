@@ -13,7 +13,7 @@
     <string name="to_recovery"><u>Forgot password?</u></string>
     <string name="to_register"><u>Do not have account?</u></string>
     <string name="login">Username or Email</string>
-    <string name="mail">Mail</string>
+    <string name="email">Email</string>
     <string name="mail_help">Enter your Email address</string>
     <string name="username">Username</string>
     <string name="username_help">Enter username</string>

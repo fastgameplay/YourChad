@@ -1,6 +1,7 @@
 package com.asl.yourchad
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,49 +23,64 @@ class ValidateUserActivity : AppCompatActivity() {
         setContentView(view)
         onClickListeners()
     }
+    
     fun onClickListeners() {
         binding.btn0.setOnClickListener {
             if (pStack.count() < 4) pStack.add(0)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn1.setOnClickListener {
             if (pStack.count() < 4) pStack.add(1)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn2.setOnClickListener {
             if (pStack.count() < 4) pStack.add(2)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn3.setOnClickListener {
             if (pStack.count() < 4) pStack.add(3)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn4.setOnClickListener {
             if (pStack.count() < 4) pStack.add(4)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn5.setOnClickListener {
             if (pStack.count() < 4) pStack.add(5)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn6.setOnClickListener {
             if (pStack.count() < 4) pStack.add(6)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn7.setOnClickListener {
             if (pStack.count() < 4) pStack.add(7)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn8.setOnClickListener {
             if (pStack.count() < 4) pStack.add(8)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btn9.setOnClickListener {
             if (pStack.count() < 4) pStack.add(9)
-            setPinText(pStack.count() - 1)
+            setPinText(pStack.count())
+            CheckPass()
         }
         binding.btnFingerprint.setOnClickListener {
-
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this,YourchatMain::class.java)
+            startActivity(intent)
+            finish()
+            Toast.makeText(this, "Coming Soon. \n wait for it chad.", Toast.LENGTH_SHORT).show()
         }
         binding.btnDelete.setOnClickListener {
             pStack.removeLastOrNull()
@@ -92,6 +108,9 @@ class ValidateUserActivity : AppCompatActivity() {
                 }
                 if (tempPass == pin) {
                     // Go To MainPage
+                    val intent = Intent(this,YourchatMain::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 else {
                     //change pin(0,1,2,3) color to red for 2000 ms
@@ -119,14 +138,14 @@ class ValidateUserActivity : AppCompatActivity() {
     }
 
     private fun savePin(value : String){
-        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
+        val sharedPreferences : SharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val editor : SharedPreferences.Editor = sharedPreferences.edit()
         editor.apply{
             putString("pin", value)
         }.apply()
     }
     private fun LoadPin() : String?{
-        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences : SharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getString("pin","")
     }
     //endregion

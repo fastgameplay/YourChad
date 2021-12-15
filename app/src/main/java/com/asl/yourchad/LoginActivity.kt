@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
                 .signInWithEmailAndPassword(binding.inputLoginField.text.toString(),binding.inputPasswordField.text.toString())
                 .addOnCompleteListener{task ->
                     if(task.isSuccessful){
-                        val intent = Intent(this,YourchatMain::class.java)
+                        val intent = Intent(this,ValidateUserActivity::class.java)
                         startActivity(intent)
                         finish()
                     }else{
