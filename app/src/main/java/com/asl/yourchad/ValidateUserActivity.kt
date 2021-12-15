@@ -14,11 +14,12 @@ class ValidateUserActivity : AppCompatActivity() {
     var isFirstTime: Boolean = true
     lateinit var binding : ActivityValidateUserBinding
     var pStack : MutableList<Int> = mutableListOf()
-    var pin : String? = LoadPin()
+    var pin : String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityValidateUserBinding.inflate(layoutInflater)
+        pin = LoadPin()
         val view = binding.root
         setContentView(view)
         onClickListeners()
@@ -122,20 +123,23 @@ class ValidateUserActivity : AppCompatActivity() {
         }
     }
 
-    //region Save & Load
     fun setPinText(value: Int){
-        var text = R.string.Dot.toString()
-        for(i in 0..4){
-            if(i == value) text = R.string.UnderLine.toString()
-            when (value){
-                1 -> binding.pin0.text = text
-                2 -> binding.pin1.text = text
-                3 -> binding.pin2.text = text
-                4 -> binding.pin3.text = text
+        binding.pin0.text = "_";
+        binding.pin1.text = "_";
+        binding.pin2.text = "_";
+        binding.pin3.text = "_";
+        for(i in 0..value){
+            when (i){
+                1 -> binding.pin0.text = "•"
+                2 -> binding.pin1.text = "•"
+                3 -> binding.pin2.text = "•"
+                4 -> binding.pin3.text = "•"
             }
+
         }
 
     }
+    //region Save & Load
 
     private fun savePin(value : String){
         val sharedPreferences : SharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
@@ -145,7 +149,7 @@ class ValidateUserActivity : AppCompatActivity() {
         }.apply()
     }
     private fun LoadPin() : String?{
-        val sharedPreferences : SharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getString("pin","")
     }
     //endregion

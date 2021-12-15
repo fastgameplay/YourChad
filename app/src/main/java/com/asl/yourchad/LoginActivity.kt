@@ -12,7 +12,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (FirebaseAuth.getInstance().currentUser != null){
-            val intent = Intent(this,YourchatMain::class.java)
+            val intent = Intent(this,ValidateUserActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -13,6 +13,9 @@
             android:name=".YourchatMain"
             android:exported="false" />
         <activity
+        android:name=".ValidateUserActivity"
+        android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="true" >
             <intent-filter>
