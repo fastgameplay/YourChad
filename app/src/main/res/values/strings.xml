@@ -19,4 +19,19 @@
     <string name="username_help">Enter username</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
+
+    <string name="UnderLine"><u>    </u></string>
+    <string name="Dot"><u> • </u></string>
+<!--                numeric                     -->
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_0">0</string>
+    <string name="_2">2</string>
+    <string name="_1">1</string>
+    <string name="_3">3</string>
+    <string name="enter_pin">Enter Pin Chad</string>
 </resources>
