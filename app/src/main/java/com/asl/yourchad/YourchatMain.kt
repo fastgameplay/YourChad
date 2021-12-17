@@ -1,6 +1,7 @@
 package com.asl.yourchad
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.asl.yourchad.databinding.ActivityYourchatMainBinding
@@ -13,7 +14,7 @@ class YourchatMain : AppCompatActivity() {
         binding = ActivityYourchatMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        onClickListeners()
+        onClickListeners()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;val uriPath = "android.resource://com.asl.yourchad/" + R.raw.ic_splash_screen; val uri: Uri = Uri.parse(uriPath); binding.imageView.setVideoURI(uri); binding.imageView.requestFocus();binding.imageView.start() // at least
     }
 
     fun onClickListeners(){
